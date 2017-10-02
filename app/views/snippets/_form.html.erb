@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :language %>
-    <%= form.text_field :language, id: :snippet_language %>
+    <%= form.select :language, options_for_select([['Ruby', 'ruby'], ['PHP', 'php'], ['Python', 'python']]) %>
   </div>
 
   <div class="field">
     <%= form.label :plain_code %>
-    <%= form.text_area :plain_code, id: :snippet_plain_code %>
+    <%= form.text_area :plain_code, id: :snippet_plain_code, cols: 100, rows: 10 %>
   </div>
 
   <div class="field">
     <%= form.label :highlighted_code %>
-    <%= form.text_area :highlighted_code, id: :snippet_highlighted_code %>
+    <%= form.text_area :highlighted_code, id: :snippet_highlighted_code, cols: 100, rows: 10 %>
   </div>
 
   <div class="actions">
