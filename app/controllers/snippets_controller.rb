@@ -28,6 +28,9 @@ class SnippetsController < ApplicationController
 
     respond_to do |format|
       if @snippet.save
+        uri = URI.parse("https://pygments.simplabs.com/")
+        request = Net::HTTP.post_form(uri, lang: @snippet.language, code: @snippet.plain_code)
+        @snippet.update_attribute(:highlighted_code, request.body)
         format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
         format.json { render :show, status: :created, location: @snippet }
       else
